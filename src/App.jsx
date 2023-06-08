@@ -3,35 +3,15 @@ import { useState } from "react";
 function App() {
   return (
     <>
-      <div
-        className=""
-        style={{ backgroundColor: "#E2E2E2", minHeight: "100vh" }}
-      >
+      <div style={{ backgroundColor: "#E2E2E2", minHeight: "100vh" }}>
         <div
-          className=""
           style={{
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "bet",
-            position: "fixed",
-            padding: ".6rem",
-            gap: ".6rem",
-            width: "100%",
-            fontWeight: "600",
-            bottom: 0,
+            flexDirection: "column",
+            gap: ".4rem",
+            padding: "1rem",
           }}
-        >
-          <a href="" className="bottom-nav-bar-item">
-            Home
-          </a>
-          <a href="" className="bottom-nav-bar-item">
-            Users
-          </a>
-          <a href="" className="bottom-nav-bar-item">
-            Comments
-          </a>
-        </div>
+        ></div>
       </div>
     </>
   );
