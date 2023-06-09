@@ -4,14 +4,14 @@ function App() {
   return (
     <>
       <div style={{ backgroundColor: "#E2E2E2", minHeight: "100vh" }}>
-        <div
+        <main
           style={{
             display: "flex",
             flexDirection: "column",
             gap: ".4rem",
             padding: "1rem",
           }}
-        ></div>
+        ></main>
       </div>
     </>
   );
