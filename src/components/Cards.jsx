@@ -1,24 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Cards = () => {
-  let fetchedPost;
+  const [posts, setPosts] = useState([]);
 
-  const getPosts = async () => {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts/1"
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-    return data;
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(posts);
+
+  const Card = (id) => {
+    return (
+      <>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            padding: "1rem",
+            backgroundColor: "white",
+            borderRadius: ".4rem",
+          }}
+        ></div>
+      </>
+    );
   };
 
   return (
     <>
-      <div style={{ width: "100%" }}></div>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          padding: "1rem",
+        }}
+      >
+        {posts.map((post) => {
+          return <Card key={post} />;
+        })}
+      </div>
     </>
   );
 };
