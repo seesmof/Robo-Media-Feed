@@ -71,6 +71,8 @@ const Cards = () => {
             </a>
           </h2>
           <p>{post.body}</p>
+
+          {/* TODO: Add a random amount of comments to the card, from 2 to 5. Add a like and dislike buttons. Add a show more comments button at the bottom as well as an input box for adding a new comment. */}
         </div>
       </>
     );
