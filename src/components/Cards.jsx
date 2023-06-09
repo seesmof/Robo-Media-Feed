@@ -1,7 +1,7 @@
 import React from "react";
 
 const Cards = () => {
-  const arrayOfPosts = [];
+  let fetchedPost;
 
   const getPosts = async () => {
     try {
@@ -15,17 +15,6 @@ const Cards = () => {
     }
     return data;
   };
-
-  getPosts()
-    .then((data) => {
-      arrayOfPosts.push(data);
-      console.log(arrayOfPosts);
-    })
-    .catch((err) => console.log(err));
-
-  for (let i = 0; i < arrayOfPosts.length; i++) {
-    console.log(arrayOfPosts[i]);
-  }
 
   return (
     <>
