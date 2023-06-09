@@ -2,6 +2,22 @@ import React, { useEffect, useState } from "react";
 
 const Cards = () => {
   const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/comments")
+      .then((res) => res.json())
+      .then((data) => setComments(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -9,7 +25,26 @@ const Cards = () => {
       .then((data) => setPosts(data))
       .catch((err) => console.log(err));
   }, []);
+
   console.log(posts);
+  console.log(users);
+  console.log(comments);
+
+  const Comments = ({ comments }) => {
+    return (
+      <>
+        {comments.map((comment) => {
+          return (
+            <div key={comment.id}>
+              <p>{comment.name}</p>
+              <p>{comment.email}</p>
+              <p>{comment.body}</p>
+            </div>
+          );
+        })}
+      </>
+    );
+  };
 
   const Card = ({ post }) => {
     return (
@@ -31,6 +66,8 @@ const Cards = () => {
             </a>
           </h2>
           <p>{post.body}</p>
+
+          <p>{comments && <Comments comments={comments} />}</p>
         </div>
       </>
     );
