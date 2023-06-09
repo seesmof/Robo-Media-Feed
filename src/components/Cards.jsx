@@ -11,7 +11,7 @@ const Cards = () => {
   }, []);
   console.log(posts);
 
-  const Card = (id) => {
+  const Card = ({ post }) => {
     return (
       <>
         <div
@@ -22,8 +22,16 @@ const Cards = () => {
             padding: "1rem",
             backgroundColor: "white",
             borderRadius: ".4rem",
+            gap: "1rem",
           }}
-        ></div>
+        >
+          <h2>
+            <a href="#" style={{ textDecoration: "none", color: "inherit" }}>
+              {post.title}
+            </a>
+          </h2>
+          <p>{post.body}</p>
+        </div>
       </>
     );
   };
@@ -33,6 +41,8 @@ const Cards = () => {
       <div
         style={{
           width: "100%",
+          maxWidth: "1000px",
+          margin: "0 auto",
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
@@ -40,7 +50,7 @@ const Cards = () => {
         }}
       >
         {posts.map((post) => {
-          return <Card key={post} />;
+          return <Card key={post.id} post={post} />;
         })}
       </div>
     </>
