@@ -57,17 +57,20 @@ const Cards = () => {
             padding: "1rem",
             backgroundColor: "white",
             borderRadius: ".4rem",
-            gap: "1rem",
           }}
         >
-          <h2>
-            <a href="#" style={{ textDecoration: "none", color: "inherit" }}>
+          <h2 style={{ marginBottom: ".6rem", fontSize: "1.2rem" }}>
+            <a
+              href="#"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
               {post.title}
             </a>
           </h2>
           <p>{post.body}</p>
-
-          <p>{comments && <Comments comments={comments} />}</p>
         </div>
       </>
     );
