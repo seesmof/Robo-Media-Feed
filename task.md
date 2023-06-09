@@ -11,3 +11,9 @@
    1. Seems pretty easy, on the very bottom of each comments section we have an input box with a button next to it. Whenever the button is pressed, we add the new comment to the comments list and it should probably appear last, at the very bottom of them as well, I think.
 
 ---
+
+1. You need to create a page that displays all the posts fetched from JSON placeholder. Each post should display its title, body text, and the username of the person who posted it.
+
+2. Under each post, you should display a list of comments. Each comment should include the name and email of the person who posted it, as well as the comment's body text.
+
+3. Finally, under the comments, you should include an input field and a submit button that allows users to submit their own comments.
