@@ -4,13 +4,3 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.bottom-nav-bar-item {
-  background: #fff;
-  color: black;
-  width: 33%;
-  border-radius: 0.6rem;
-  text-align: center;
-  text-decoration: none;
-  padding: 1rem;
-}

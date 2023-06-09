@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cards from "./components/Cards";
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
             gap: ".4rem",
             padding: "1rem",
           }}
-        ></main>
+        >
+          <Cards />
+        </main>
       </div>
     </>
   );
