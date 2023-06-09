@@ -52,10 +52,10 @@ const Cards = () => {
     );
   };
 
-  const [filledHeart, setFilledHeart] = useState(false);
-  const [filledDislike, setFilledDislike] = useState(false);
-
   const Card = ({ post }) => {
+    const [filledHeart, setFilledHeart] = useState(false);
+    const [filledDislike, setFilledDislike] = useState(false);
+
     return (
       <>
         <div
