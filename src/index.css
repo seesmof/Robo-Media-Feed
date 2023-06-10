@@ -4,3 +4,13 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+.reaction-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: black;
+}
+.like-button:hover {
+  color: #ef4444;
+}

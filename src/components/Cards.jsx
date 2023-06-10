@@ -28,22 +28,25 @@ const Cards = () => {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
-      .then((data) => setPosts(data))
+      .then((data) => setComments(data))
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(posts);
-  console.log(users);
-  console.log(comments);
-
   const Comments = ({ comments }) => {
+    const [visibleComments, setVisibleComments] = useState([]);
+
+    const setRandomAmountOfVisibleComments = () => {
+      const min = 2;
+      const max = 5;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      setVisibleComments(comments.slice(0, randomNumber));
+    };
+
     return (
       <>
         {comments.map((comment) => {
           return (
             <div key={comment.id}>
-              <p>{comment.name}</p>
-              <p>{comment.email}</p>
               <p>{comment.body}</p>
             </div>
           );
@@ -101,23 +104,14 @@ const Cards = () => {
             }}
           >
             <button
-              style={{
-                backgroundColor: "transparent",
-                border: "none",
-                fontSize: "1.4rem",
-                cursor: "pointer",
-              }}
+              className="reaction-button like-button"
+              style={{ color: filledHeart ? "#ef4444" : "inherit" }}
               onClick={() => setFilledHeart(!filledHeart)}
             >
               {filledHeart ? <AiFillHeart /> : <AiOutlineHeart />}
             </button>
             <button
-              style={{
-                backgroundColor: "transparent",
-                border: "none",
-                fontSize: "1.4rem",
-                cursor: "pointer",
-              }}
+              className="reaction-button dislike-button"
               onClick={() => setFilledDislike(!filledDislike)}
             >
               {filledDislike ? <AiFillDislike /> : <AiOutlineDislike />}
