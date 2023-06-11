@@ -28,28 +28,48 @@ const Cards = () => {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
-      .then((data) => setComments(data))
+      .then((data) => setPosts(data))
       .catch((err) => console.log(err));
   }, []);
 
-  const Comments = ({ comments }) => {
-    const [visibleComments, setVisibleComments] = useState([]);
+  const Comment = ({ comment }) => {
+    return (
+      <>
+        <div
+          className=""
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: ".3rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <p>{comment.body}</p>
+          <p style={{ fontSize: ".9rem", color: "#888" }}>{comment.email}</p>
+        </div>
+      </>
+    );
+  };
 
-    const setRandomAmountOfVisibleComments = () => {
-      const min = 2;
-      const max = 5;
-      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-      setVisibleComments(comments.slice(0, randomNumber));
-    };
+  const Comments = ({ comments, postId }) => {
+    const showComments = comments.filter(
+      (comment) => comment.postId === postId
+    );
 
     return (
       <>
-        {comments.map((comment) => {
-          return (
-            <div key={comment.id}>
-              <p>{comment.body}</p>
-            </div>
-          );
+        <p
+          style={{
+            fontSize: ".9rem",
+            color: "#77DD77",
+            fontWeight: "bold",
+            marginBottom: ".4rem",
+          }}
+        >
+          {showComments.length} Comments
+        </p>
+        {showComments.map((comment) => {
+          return <Comment key={comment.id} comment={comment} />;
         })}
       </>
     );
@@ -116,6 +136,10 @@ const Cards = () => {
             >
               {filledDislike ? <AiFillDislike /> : <AiOutlineDislike />}
             </button>
+          </div>
+
+          <div className="" style={{ marginTop: ".8rem" }}>
+            <Comments comments={comments} postId={post.id} />
           </div>
 
           {/* TODO: Add a random amount of comments to the card, from 2 to 5. Add a show more comments button at the bottom as well as an input box for adding a new comment. */}
