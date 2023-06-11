@@ -12,6 +12,12 @@
 
 ---
 
+1. Crete a page that displays every post, fetched from JSON Placeholder API, with its title, body text and username that posted that post.
+2. under every post there should be a list of comments. And these comments should have their comment posters name, email and comment body text.
+3. Under these comments there should be an input field with a submit button, with which I could submit my own comment.
+
+---
+
 1. You need to create a page that displays all the posts fetched from JSON placeholder. Each post should display its title, body text, and the username of the person who posted it.
 
 2. Under each post, you should display a list of comments. Each comment should include the name and email of the person who posted it, as well as the comment's body text.

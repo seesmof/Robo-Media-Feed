@@ -46,6 +46,9 @@ const Cards = () => {
         >
           <p>{comment.body}</p>
           <p style={{ fontSize: ".9rem", color: "#888" }}>{comment.email}</p>
+          <p style={{ fontSize: ".9rem", color: "#888" }}>
+            {users.find((user) => user.id === comment.userId)?.name}
+          </p>
         </div>
       </>
     );

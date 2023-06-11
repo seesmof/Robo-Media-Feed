@@ -4,7 +4,7 @@ import Cards from "./components/Cards";
 function App() {
   return (
     <>
-      <div style={{ backgroundColor: "#E2E2E2", minHeight: "100vh" }}>
+      <div>
         <main>
           <Cards />
         </main>
