@@ -1,16 +1,30 @@
+:root {
+  --bg: #292524;
+  --text: #fafaf9;
+  --highlight: #e7e5e4;
+  --accent: #ff9f00;
+}
+
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-.reaction-button {
-  background-color: transparent;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: black;
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
 }
-.like-button:hover {
-  color: #ef4444;
+
+.card {
+  padding: 1rem;
+  border-radius: 0.6rem;
+  background-color: var(--text);
+  color: var(--bg);
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
 }
