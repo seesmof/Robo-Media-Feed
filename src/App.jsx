@@ -43,6 +43,10 @@ function App() {
   }, []);
 
   const Card = ({ post }) => {
+    const [localComments, setLocalComments] = useState([
+      comments.filter((comment) => comment.postId === post.id),
+    ]);
+
     return (
       <>
         <div className="card">
@@ -61,23 +65,15 @@ function App() {
           <div className="card-comments">
             <h3>Comments</h3>
             <div className="comments-container">
-              {comments
-                .filter((comment) => comment.postId === post.id)
-                .map((comment) => (
-                  <div className="comment-body">
-                    <p>
-                      {
-                        users.find(
-                          (user) =>
-                            user.id ===
-                            comment.postId + Math.floor(Math.random() * 10) + 1
-                        )?.name
-                      }
-                    </p>
-                    <p>{comment.email}</p>
-                    <p>{comment.body}</p>
-                  </div>
-                ))}
+              {localComments.map((comment) => (
+                <div className="comment-body">
+                  <p className="comment-author">
+                    {users.find((user) => user.id === comment.postId)?.name} -{" "}
+                    {comment.email}
+                  </p>
+                  <p>{comment.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -16,6 +16,14 @@ body {
   background-color: var(--bg);
   color: var(--text);
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
 
 .card {
   padding: 1rem;
@@ -30,8 +38,8 @@ body {
     font-size: 1rem;
     text-transform: capitalize;
   }
-  .card-author {
-    color: #757575;
+  .card-body {
+    font-size: 0.9rem;
   }
   .card-comments h3 {
     font-size: 1.1rem;
@@ -43,6 +51,17 @@ body {
     gap: 0.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+
+    .comment-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.9rem;
+
+      .comment-author {
+        font-size: 1rem;
+      }
+    }
   }
 }
 .container {
