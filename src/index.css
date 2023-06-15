@@ -30,9 +30,9 @@ h6 {
   border-radius: 0.6rem;
   background-color: var(--text);
   color: var(--bg);
-  display: flex;
   gap: 0.5rem;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
 
   .card-title {
     font-size: 1rem;

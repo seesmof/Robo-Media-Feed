@@ -63,6 +63,8 @@ function App() {
       newComment.current.value = "";
     };
 
+    const localUser = users.find((user) => user.id === post.userId)?.name;
+
     return (
       <>
         <div className="card">
@@ -73,9 +75,7 @@ function App() {
             <p>{post.body}</p>
           </div>
           <div className="card-author">
-            <p>
-              Posted by: {users.find((user) => user.id === post.userId)?.name}
-            </p>
+            <p>Posted by: {localUser}</p>
           </div>
 
           <div className="card-comments">
@@ -95,24 +95,13 @@ function App() {
               {localComments.map((comment) => (
                 <div className="comment-body">
                   <p className="comment-author">
-                    {users.find((user) => user.id === comment.postId)?.name} -{" "}
-                    {comment.email}
+                    {localUser} - {comment.email}
                   </p>
                   <p>{comment.body}</p>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </>
-    );
-  };
-
-  const cardComment = ({ comment }) => {
-    return (
-      <>
-        <div className="card-comment">
-          <p>{comment.body}</p>
         </div>
       </>
     );
