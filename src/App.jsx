@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -43,9 +43,25 @@ function App() {
   }, []);
 
   const Card = ({ post }) => {
-    const [localComments, setLocalComments] = useState([
-      comments.filter((comment) => comment.postId === post.id),
-    ]);
+    const [localComments, setLocalComments] = useState([]);
+
+    useEffect(() => {
+      setLocalComments(
+        comments.filter((comment) => comment.postId === post.id)
+      );
+    }, [comments, post.id]);
+
+    const newComment = useRef();
+
+    const addNewComment = () => {
+      const newCommentData = {
+        body: newComment.current.value,
+        postId: post.id,
+        email: "user@example.com",
+      };
+      setLocalComments([...localComments, newCommentData]);
+      newComment.current.value = "";
+    };
 
     return (
       <>
@@ -64,6 +80,17 @@ function App() {
 
           <div className="card-comments">
             <h3>Comments</h3>
+            <div className="new-comment-container">
+              <input
+                type="text"
+                placeholder="Add a comment..."
+                className="new-comment"
+                ref={newComment}
+              />
+              <button className="new-comment-button" onClick={addNewComment}>
+                Post Comment
+              </button>
+            </div>
             <div className="comments-container">
               {localComments.map((comment) => (
                 <div className="comment-body">
