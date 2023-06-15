@@ -33,6 +33,17 @@ body {
   .card-author {
     color: #757575;
   }
+  .card-comments h3 {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+  }
+  .comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 }
 .container {
   max-width: 1000px;

@@ -10,7 +10,6 @@ function App() {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       const data = await res.json();
       setPosts(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -21,7 +20,6 @@ function App() {
       const res = await fetch("https://jsonplaceholder.typicode.com/users");
       const data = await res.json();
       setUsers(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -59,6 +57,39 @@ function App() {
               Posted by: {users.find((user) => user.id === post.userId)?.name}
             </p>
           </div>
+
+          <div className="card-comments">
+            <h3>Comments</h3>
+            <div className="comments-container">
+              {comments
+                .filter((comment) => comment.postId === post.id)
+                .map((comment) => (
+                  <div className="comment-body">
+                    <p>
+                      {
+                        users.find(
+                          (user) =>
+                            user.id ===
+                            comment.postId + Math.floor(Math.random() * 10) + 1
+                        )?.name
+                      }
+                    </p>
+                    <p>{comment.email}</p>
+                    <p>{comment.body}</p>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  const cardComment = ({ comment }) => {
+    return (
+      <>
+        <div className="card-comment">
+          <p>{comment.body}</p>
         </div>
       </>
     );
