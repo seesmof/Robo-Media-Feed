@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -9,7 +9,6 @@ function App() {
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       const data = await res.json();
-      setPosts(data);
       setPosts(data);
       console.log(data);
     } catch (error) {
@@ -45,22 +44,41 @@ function App() {
     fetchComments();
   }, []);
 
-  const Card = () => {
+  const Card = ({ post }) => {
     return (
       <>
         <div className="card">
+          <div className="card-title">
+            <h2>{post.title}</h2>
+          </div>
           <div className="card-body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-            minus iusto ducimus, officia velit illum voluptas quis aut
-            exercitationem maxime.
+            <p>{post.body}</p>
+          </div>
+          <div className="card-author">
+            <p>
+              Posted by: {users.find((user) => user.id === post.userId)?.name}
+            </p>
           </div>
         </div>
       </>
     );
   };
+
+  const renderCards = () => {
+    return (
+      <>
+        <div className="cards">
+          {posts.map((post) => (
+            <Card key={post.id} post={post} />
+          ))}
+        </div>
+      </>
+    );
+  };
+
   return (
     <>
-      <section className="container"></section>
+      <section className="container">{renderCards()}</section>
     </>
   );
 }

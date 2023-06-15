@@ -22,9 +22,26 @@ body {
   border-radius: 0.6rem;
   background-color: var(--text);
   color: var(--bg);
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+
+  .card-title {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+  .card-author {
+    color: #757575;
+  }
 }
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem;
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
