@@ -5,50 +5,50 @@ function App() {
   const [users, setUsers] = useState([]);
   const [comments, setComments] = useState([]);
 
-  const fetchPosts = async () => {
-    try {
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-      const data = await res.json();
-      setPosts(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const fetchUsers = async () => {
-    try {
-      const res = await fetch("https://jsonplaceholder.typicode.com/users");
-      const data = await res.json();
-      setUsers(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const fetchComments = async () => {
-    try {
-      const res = await fetch("https://jsonplaceholder.typicode.com/comments");
-      const data = await res.json();
-      setComments(data);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+        const data = await res.json();
+        setPosts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchUsers = async () => {
+      try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/users");
+        const data = await res.json();
+        setUsers(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchComments = async () => {
+      try {
+        const res = await fetch(
+          "https://jsonplaceholder.typicode.com/comments"
+        );
+        const data = await res.json();
+        setComments(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchPosts();
     fetchUsers();
     fetchComments();
   }, []);
 
   const Card = ({ post }) => {
-    const [localComments, setLocalComments] = useState([]);
+    const [postComments, setPostComments] = useState([]);
 
     useEffect(() => {
-      setLocalComments(
-        comments.filter((comment) => comment.postId === post.id)
-      );
+      setPostComments(comments.filter((comment) => comment.postId === post.id));
     }, [comments, post.id]);
 
     const newComment = useRef();
@@ -59,11 +59,11 @@ function App() {
         postId: post.id,
         email: "user@example.com",
       };
-      setLocalComments([...localComments, newCommentData]);
+      setPostComments([...postComments, newCommentData]);
       newComment.current.value = "";
     };
 
-    const localUser = users.find((user) => user.id === post.userId)?.name;
+    const postUsername = users.find((user) => user.id === post.userId)?.name;
 
     return (
       <>
@@ -75,7 +75,7 @@ function App() {
             <p>{post.body}</p>
           </div>
           <div className="card-author">
-            <p>Posted by: {localUser}</p>
+            <p>Posted by: {postUsername}</p>
           </div>
 
           <div className="card-comments">
@@ -92,10 +92,10 @@ function App() {
               </button>
             </div>
             <div className="comments-container">
-              {localComments.map((comment) => (
-                <div className="comment-body">
+              {postComments.map((comment) => (
+                <div className="comment-body" key={comment.id}>
                   <p className="comment-author">
-                    {localUser} - {comment.email}
+                    {postUsername} - {comment.email}
                   </p>
                   <p>{comment.body}</p>
                 </div>
