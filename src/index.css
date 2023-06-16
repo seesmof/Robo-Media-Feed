@@ -1,7 +1,8 @@
 :root {
-  --bg: #292524;
-  --text: #fafaf9;
-  --highlight: #e7e5e4;
+  --bg: #111827;
+  --card-bg: #1f2937;
+  --text: #f9fafb;
+  --highlight: #f3f4f6;
   --accent: #ff9f00;
 }
 
@@ -28,8 +29,8 @@ h6 {
 .card {
   padding: 1rem;
   border-radius: 0.6rem;
-  background-color: var(--text);
-  color: var(--bg);
+  background-color: var(--card-bg);
+  color: var(--text);
   gap: 0.5rem;
   display: grid;
   grid-template-columns: 1fr;
@@ -49,21 +50,24 @@ h6 {
     display: flex;
     gap: 1rem;
     flex-direction: row;
+    justify-content: end;
     width: 100%;
     margin: 1rem 0 0.8rem 0;
   }
   .new-comment-container input {
     padding: 0.3rem 0.1rem;
     width: 100%;
-    background: var(--text);
+    background: var(--card-bg);
+    color: var(--text);
     border: none;
     border-bottom: 1px solid var(--highlight);
     outline: none;
   }
   .new-comment-container button {
     white-space: nowrap;
-    padding: 0.3rem 0.8rem;
-    background-color: var(--accent);
+    padding: 0.5rem 0.8rem;
+    background-color: #374151;
+    color: var(--text);
     border: none;
     outline: none;
     border-radius: 0.3rem;

@@ -33,7 +33,6 @@ function App() {
         );
         const data = await res.json();
         setComments(data);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
