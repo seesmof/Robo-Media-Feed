@@ -35,12 +35,14 @@ h6 {
   display: grid;
   grid-template-columns: 1fr;
 
+  .card-author {
+    font-size: 0.9rem;
+    color: var(--highlight);
+  }
+
   .card-title {
     font-size: 1rem;
     text-transform: capitalize;
-  }
-  .card-body {
-    font-size: 0.9rem;
   }
   .card-comments h3 {
     font-size: 1.1rem;
