@@ -107,6 +107,10 @@ function App() {
   };
 
   const renderCards = () => {
+    useEffect(() => {
+      console.log("I run on every render: mount + update.");
+    });
+
     return (
       <>
         <div className="cards">
