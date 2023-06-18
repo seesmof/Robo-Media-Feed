@@ -103,10 +103,10 @@ const Card = ({ id, userId, title, body }) => {
             <input
               type="text"
               placeholder="Add a comment..."
-              className="new-comment"
+              className="underlined-input"
               ref={newComment}
             />
-            <button className="new-comment-button" onClick={addNewComment}>
+            <button className="button" onClick={addNewComment}>
               Post Comment
             </button>
           </div>

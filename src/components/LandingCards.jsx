@@ -1,8 +1,10 @@
 import Card from "./Card";
 import React, { useEffect, useState } from "react";
+import NewPostCard from "./NewPostCard";
 
 const LandingCards = () => {
   const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -20,6 +22,7 @@ const LandingCards = () => {
 
   return (
     <>
+      <NewPostCard posts={posts} setPosts={setPosts} />
       <div className="cards">
         {posts.map((post) => (
           <Card
