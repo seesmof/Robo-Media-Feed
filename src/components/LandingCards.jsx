@@ -25,7 +25,7 @@ const LandingCards = () => {
           <Card
             key={post.id}
             id={post.id}
-            userID={post.userId}
+            userId={post.userId}
             title={post.title}
             body={post.body}
           />
@@ -36,6 +36,3 @@ const LandingCards = () => {
 };
 
 export default LandingCards;
-
-// TODO: Look into passing keys when mapping over objects
-// ! Fix the issue with usernames not being displayed

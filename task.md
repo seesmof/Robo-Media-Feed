@@ -9,6 +9,8 @@
    3. oh, no, actually yeah, thats a good idea. we just show a few of the comments right away, and the rest of them are just hidden, until the _Show more_ button is pressed. Yeah, we'll do it like that.
 3. Under these comments there should be an input field with a submit button, with which I could submit my own comment.
    1. Seems pretty easy, on the very bottom of each comments section we have an input box with a button next to it. Whenever the button is pressed, we add the new comment to the comments list and it should probably appear last, at the very bottom of them as well, I think.
+4. every post should have a like and dislike button and if i press one or the other the svg would change and number should change aswell.
+5. On the very top of the page there should be a big text input field with a post button and with it i should post a post.
 
 ---
 
