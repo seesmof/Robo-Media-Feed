@@ -4,7 +4,6 @@ import NewPostCard from "./NewPostCard";
 
 const LandingCards = () => {
   const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
