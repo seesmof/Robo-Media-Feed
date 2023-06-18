@@ -3,7 +3,8 @@
   --card-bg: #1f2937;
   --text: #f9fafb;
   --highlight: #f3f4f6;
-  --accent: #ff9f00;
+  --red-like: #e53e3e;
+  --gray-dislike: #6b7280;
 }
 
 * {
@@ -124,4 +125,10 @@ h6 {
   display: flex;
   flex-direction: row;
   gap: 0.4rem;
+}
+.liked {
+  color: var(--red-like);
+}
+.disliked {
+  color: var(--gray-dislike);
 }

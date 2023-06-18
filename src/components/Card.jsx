@@ -57,6 +57,9 @@ const Card = ({ id, userId, title, body }) => {
 
   const postUsername = users.find((user) => user.id === userId)?.name;
 
+  const [isLiked, setIsLiked] = useState(false);
+  const [isDisliked, setIsDisliked] = useState(false);
+
   return (
     <>
       <div className="card">
@@ -71,11 +74,25 @@ const Card = ({ id, userId, title, body }) => {
             <p>Posted by: {postUsername}</p>
           </div>
           <div className="buttons-container">
-            <button className="" style={{ all: "unset" }}>
-              <AiOutlineHeart size={"1.3rem"} />
+            <button
+              onClick={() => setIsLiked(!isLiked)}
+              style={{ all: "unset" }}
+            >
+              {isLiked ? (
+                <AiFillHeart size={"1.3rem"} className="liked" />
+              ) : (
+                <AiOutlineHeart size={"1.3rem"} />
+              )}
             </button>
-            <button className="" style={{ all: "unset" }}>
-              <AiOutlineDislike size={"1.3rem"} />
+            <button
+              onClick={() => setIsDisliked(!isDisliked)}
+              style={{ all: "unset" }}
+            >
+              {isDisliked ? (
+                <AiFillDislike size={"1.3rem"} className="disliked" />
+              ) : (
+                <AiOutlineDislike size={"1.3rem"} />
+              )}
             </button>
           </div>
         </div>
