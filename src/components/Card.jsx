@@ -1,4 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import {
+  AiOutlineDislike,
+  AiFillDislike,
+  AiFillHeart,
+  AiOutlineHeart,
+} from "react-icons/ai";
 
 const Card = ({ id, userId, title, body }) => {
   const [users, setUsers] = useState([]);
@@ -60,8 +66,18 @@ const Card = ({ id, userId, title, body }) => {
         <div className="card-body">
           <p>{body}</p>
         </div>
-        <div className="card-author">
-          <p>Posted by: {postUsername}</p>
+        <div className="post-interaction-container">
+          <div className="card-author">
+            <p>Posted by: {postUsername}</p>
+          </div>
+          <div className="buttons-container">
+            <button className="" style={{ all: "unset" }}>
+              <AiOutlineHeart size={"1.3rem"} />
+            </button>
+            <button className="" style={{ all: "unset" }}>
+              <AiOutlineDislike size={"1.3rem"} />
+            </button>
+          </div>
         </div>
 
         <div className="card-comments">
